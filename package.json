@@ -35,5 +35,7 @@
     "insertPragma": false,
     "endOfLine": "lf"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@saturnbtcio/arch-sdk": "0.0.11"
+  }
 }
