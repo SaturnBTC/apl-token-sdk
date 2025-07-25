@@ -15,6 +15,8 @@ export { createInitializeMintInstruction } from './instructions/initialize-mint'
 export { createInitializeAccountInstruction } from './instructions/initialize-account';
 export type { InitializeMultisig } from './instructions/initialize-multisig';
 export { createInitializeMultisigInstruction } from './instructions/initialize-multisig';
+export type { Transfer } from './instructions/transfer';
+export { createTransferInstruction } from './instructions/transfer';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';

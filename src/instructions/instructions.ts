@@ -13,12 +13,14 @@ import {
   serializeInitializeMultisig,
   deserializeInitializeMultisig,
 } from './initialize-multisig';
+import { Transfer, serializeTransfer, deserializeTransfer } from './transfer';
 import { UnknownInstructionTagError } from '../errors/unknown-instruction-tag-error';
 
 export enum TokenInstructionTag {
   InitializeMint = 0,
   InitializeAccount = 1,
   InitializeMultisig = 2,
+  Transfer = 3,
   // Add other instructions as needed
 }
 
@@ -26,6 +28,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.InitializeMint]: InitializeMint;
   [TokenInstructionTag.InitializeAccount]: InitializeAccount;
   [TokenInstructionTag.InitializeMultisig]: InitializeMultisig;
+  [TokenInstructionTag.Transfer]: Transfer;
   // Add more as you implement them
 }
 
@@ -44,6 +47,7 @@ const serializeMap: {
   [TokenInstructionTag.InitializeMint]: serializeInitializeMint,
   [TokenInstructionTag.InitializeAccount]: serializeInitializeAccount,
   [TokenInstructionTag.InitializeMultisig]: serializeInitializeMultisig,
+  [TokenInstructionTag.Transfer]: serializeTransfer,
   // Add more as you implement them
 };
 
@@ -55,6 +59,7 @@ const deserializeMap: {
   [TokenInstructionTag.InitializeMint]: deserializeInitializeMint,
   [TokenInstructionTag.InitializeAccount]: deserializeInitializeAccount,
   [TokenInstructionTag.InitializeMultisig]: deserializeInitializeMultisig,
+  [TokenInstructionTag.Transfer]: deserializeTransfer,
   // Add more as you implement them
 };
 
