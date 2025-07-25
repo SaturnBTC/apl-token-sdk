@@ -33,6 +33,11 @@ import {
   serializeFreezeAccount,
   deserializeFreezeAccount,
 } from './freeze-account';
+import {
+  ThawAccount,
+  serializeThawAccount,
+  deserializeThawAccount,
+} from './thaw-account';
 import { UnknownInstructionTagError } from '../errors/unknown-instruction-tag-error';
 
 export enum TokenInstructionTag {
@@ -47,6 +52,7 @@ export enum TokenInstructionTag {
   Burn = 8,
   CloseAccount = 9,
   FreezeAccount = 10,
+  ThawAccount = 11,
   // Add other instructions as needed
 }
 
@@ -62,6 +68,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.Burn]: Burn;
   [TokenInstructionTag.CloseAccount]: CloseAccount;
   [TokenInstructionTag.FreezeAccount]: FreezeAccount;
+  [TokenInstructionTag.ThawAccount]: ThawAccount;
   // Add more as you implement them
 }
 
@@ -88,6 +95,7 @@ const serializeMap: {
   [TokenInstructionTag.Burn]: serializeBurn,
   [TokenInstructionTag.CloseAccount]: serializeCloseAccount,
   [TokenInstructionTag.FreezeAccount]: serializeFreezeAccount,
+  [TokenInstructionTag.ThawAccount]: serializeThawAccount,
   // Add more as you implement them
 };
 
@@ -107,6 +115,7 @@ const deserializeMap: {
   [TokenInstructionTag.Burn]: deserializeBurn,
   [TokenInstructionTag.CloseAccount]: deserializeCloseAccount,
   [TokenInstructionTag.FreezeAccount]: deserializeFreezeAccount,
+  [TokenInstructionTag.ThawAccount]: deserializeThawAccount,
   // Add more as you implement them
 };
 
