@@ -19,6 +19,8 @@ export type { Transfer } from './instructions/transfer';
 export { createTransferInstruction } from './instructions/transfer';
 export type { Approve } from './instructions/approve';
 export { createApproveInstruction } from './instructions/approve';
+export type { Revoke } from './instructions/revoke';
+export { createRevokeInstruction } from './instructions/revoke';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';

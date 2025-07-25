@@ -4,6 +4,7 @@ import { AccountMeta } from '@saturnbtcio/arch-sdk';
 import { TokenInstructionTag } from './instructions';
 import { InstructionDeserializationError } from '../errors/instruction-deserialization-error';
 
+// TODO: Check the solution
 export type InitializeAccount = {};
 
 export const serializeInitializeAccount = (
