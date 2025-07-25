@@ -17,6 +17,8 @@ export type { InitializeMultisig } from './instructions/initialize-multisig';
 export { createInitializeMultisigInstruction } from './instructions/initialize-multisig';
 export type { Transfer } from './instructions/transfer';
 export { createTransferInstruction } from './instructions/transfer';
+export type { Approve } from './instructions/approve';
+export { createApproveInstruction } from './instructions/approve';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
