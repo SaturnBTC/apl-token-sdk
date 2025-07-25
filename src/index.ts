@@ -23,6 +23,8 @@ export type { Revoke } from './instructions/revoke';
 export { createRevokeInstruction } from './instructions/revoke';
 export type { SetAuthority, AuthorityType } from './instructions/set-authority';
 export { createSetAuthorityInstruction } from './instructions/set-authority';
+export type { MintTo } from './instructions/mint-to';
+export { createMintToInstruction } from './instructions/mint-to';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';

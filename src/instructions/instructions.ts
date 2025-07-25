@@ -21,6 +21,7 @@ import {
   serializeSetAuthority,
   deserializeSetAuthority,
 } from './set-authority';
+import { MintTo, serializeMintTo, deserializeMintTo } from './mint-to';
 import { UnknownInstructionTagError } from '../errors/unknown-instruction-tag-error';
 
 export enum TokenInstructionTag {
@@ -31,6 +32,7 @@ export enum TokenInstructionTag {
   Approve = 4,
   Revoke = 5,
   SetAuthority = 6,
+  MintTo = 7,
   // Add other instructions as needed
 }
 
@@ -42,6 +44,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.Approve]: Approve;
   [TokenInstructionTag.Revoke]: Revoke;
   [TokenInstructionTag.SetAuthority]: SetAuthority;
+  [TokenInstructionTag.MintTo]: MintTo;
   // Add more as you implement them
 }
 
@@ -64,6 +67,7 @@ const serializeMap: {
   [TokenInstructionTag.Approve]: serializeApprove,
   [TokenInstructionTag.Revoke]: serializeRevoke,
   [TokenInstructionTag.SetAuthority]: serializeSetAuthority,
+  [TokenInstructionTag.MintTo]: serializeMintTo,
   // Add more as you implement them
 };
 
@@ -79,6 +83,7 @@ const deserializeMap: {
   [TokenInstructionTag.Approve]: deserializeApprove,
   [TokenInstructionTag.Revoke]: deserializeRevoke,
   [TokenInstructionTag.SetAuthority]: deserializeSetAuthority,
+  [TokenInstructionTag.MintTo]: deserializeMintTo,
   // Add more as you implement them
 };
 
