@@ -16,6 +16,11 @@ import {
 import { Transfer, serializeTransfer, deserializeTransfer } from './transfer';
 import { Approve, serializeApprove, deserializeApprove } from './approve';
 import { Revoke, serializeRevoke, deserializeRevoke } from './revoke';
+import {
+  SetAuthority,
+  serializeSetAuthority,
+  deserializeSetAuthority,
+} from './set-authority';
 import { UnknownInstructionTagError } from '../errors/unknown-instruction-tag-error';
 
 export enum TokenInstructionTag {
@@ -25,6 +30,7 @@ export enum TokenInstructionTag {
   Transfer = 3,
   Approve = 4,
   Revoke = 5,
+  SetAuthority = 6,
   // Add other instructions as needed
 }
 
@@ -35,6 +41,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.Transfer]: Transfer;
   [TokenInstructionTag.Approve]: Approve;
   [TokenInstructionTag.Revoke]: Revoke;
+  [TokenInstructionTag.SetAuthority]: SetAuthority;
   // Add more as you implement them
 }
 
@@ -56,6 +63,7 @@ const serializeMap: {
   [TokenInstructionTag.Transfer]: serializeTransfer,
   [TokenInstructionTag.Approve]: serializeApprove,
   [TokenInstructionTag.Revoke]: serializeRevoke,
+  [TokenInstructionTag.SetAuthority]: serializeSetAuthority,
   // Add more as you implement them
 };
 
@@ -70,6 +78,7 @@ const deserializeMap: {
   [TokenInstructionTag.Transfer]: deserializeTransfer,
   [TokenInstructionTag.Approve]: deserializeApprove,
   [TokenInstructionTag.Revoke]: deserializeRevoke,
+  [TokenInstructionTag.SetAuthority]: deserializeSetAuthority,
   // Add more as you implement them
 };
 

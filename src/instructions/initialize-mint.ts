@@ -1,7 +1,11 @@
 import { TokenInstructionTag } from './instructions';
-import { Pubkey, COptionPubkey } from '../types/pubkey';
+import {
+  Pubkey,
+  COptionPubkey,
+  serializeCOptionPubkey,
+  deserializeCOptionPubkey,
+} from '../types/pubkey';
 import { InstructionDeserializationError } from '../errors/instruction-deserialization-error';
-import { InvalidCOptionError } from '../errors/invalid-coption-error';
 import { Instruction } from '@saturnbtcio/arch-sdk';
 import { AccountMeta } from '@saturnbtcio/arch-sdk';
 
@@ -10,34 +14,6 @@ export interface InitializeMint {
   mintAuthority: Pubkey;
   freezeAuthority: COptionPubkey;
 }
-
-const serializeCOptionPubkey = (option: COptionPubkey): Uint8Array => {
-  if (option.option === 0) {
-    return new Uint8Array([0]);
-  } else {
-    const buffer = new Uint8Array(1 + 32);
-    buffer[0] = 1;
-    buffer.set(option.value, 1);
-    return buffer;
-  }
-};
-
-const deserializeCOptionPubkey = (
-  buffer: Uint8Array,
-  offset: number,
-): { value: COptionPubkey; read: number } => {
-  const tag = buffer[offset];
-  if (tag === 0) {
-    return { value: { option: 0 }, read: 1 };
-  } else if (tag === 1) {
-    if (buffer.length < offset + 33)
-      throw new InvalidCOptionError('Invalid pubkey length in COption');
-    const pubkey = buffer.slice(offset + 1, offset + 33);
-    return { value: { option: 1, value: pubkey }, read: 1 + 32 };
-  } else {
-    throw new InvalidCOptionError('Invalid COption tag');
-  }
-};
 
 export const serializeInitializeMint = (
   instruction: InitializeMint,

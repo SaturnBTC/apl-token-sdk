@@ -21,6 +21,8 @@ export type { Approve } from './instructions/approve';
 export { createApproveInstruction } from './instructions/approve';
 export type { Revoke } from './instructions/revoke';
 export { createRevokeInstruction } from './instructions/revoke';
+export type { SetAuthority, AuthorityType } from './instructions/set-authority';
+export { createSetAuthorityInstruction } from './instructions/set-authority';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
@@ -29,3 +31,7 @@ export { UnknownInstructionTagError } from './errors/unknown-instruction-tag-err
 
 // Shared types
 export type { Pubkey, COptionPubkey } from './types/pubkey';
+export {
+  serializeCOptionPubkey,
+  deserializeCOptionPubkey,
+} from './types/pubkey';
