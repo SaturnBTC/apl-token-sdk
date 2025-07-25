@@ -33,6 +33,8 @@ export type { FreezeAccount } from './instructions/freeze-account';
 export { createFreezeAccountInstruction } from './instructions/freeze-account';
 export type { ThawAccount } from './instructions/thaw-account';
 export { createThawAccountInstruction } from './instructions/thaw-account';
+export type { TransferChecked } from './instructions/transfer-checked';
+export { createTransferCheckedInstruction } from './instructions/transfer-checked';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
