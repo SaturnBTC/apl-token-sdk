@@ -24,6 +24,11 @@ import {
 import { MintTo, serializeMintTo, deserializeMintTo } from './mint-to';
 import { Burn, serializeBurn, deserializeBurn } from './burn';
 import {
+  BurnChecked,
+  serializeBurnChecked,
+  deserializeBurnChecked,
+} from './burn-checked';
+import {
   CloseAccount,
   serializeCloseAccount,
   deserializeCloseAccount,
@@ -71,6 +76,7 @@ export enum TokenInstructionTag {
   TransferChecked = 12,
   ApproveChecked = 13,
   MintToChecked = 14,
+  BurnChecked = 15,
   // Add other instructions as needed
 }
 
@@ -90,6 +96,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.TransferChecked]: TransferChecked;
   [TokenInstructionTag.ApproveChecked]: ApproveChecked;
   [TokenInstructionTag.MintToChecked]: MintToChecked;
+  [TokenInstructionTag.BurnChecked]: BurnChecked;
   // Add more as you implement them
 }
 
@@ -120,6 +127,7 @@ const serializeMap: {
   [TokenInstructionTag.TransferChecked]: serializeTransferChecked,
   [TokenInstructionTag.ApproveChecked]: serializeApproveChecked,
   [TokenInstructionTag.MintToChecked]: serializeMintToChecked,
+  [TokenInstructionTag.BurnChecked]: serializeBurnChecked,
   // Add more as you implement them
 };
 
@@ -143,6 +151,7 @@ const deserializeMap: {
   [TokenInstructionTag.TransferChecked]: deserializeTransferChecked,
   [TokenInstructionTag.ApproveChecked]: deserializeApproveChecked,
   [TokenInstructionTag.MintToChecked]: deserializeMintToChecked,
+  [TokenInstructionTag.BurnChecked]: deserializeBurnChecked,
   // Add more as you implement them
 };
 
