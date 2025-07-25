@@ -48,6 +48,11 @@ import {
   serializeApproveChecked,
   deserializeApproveChecked,
 } from './approve-checked';
+import {
+  MintToChecked,
+  serializeMintToChecked,
+  deserializeMintToChecked,
+} from './mint-to-checked';
 import { UnknownInstructionTagError } from '../errors/unknown-instruction-tag-error';
 
 export enum TokenInstructionTag {
@@ -65,6 +70,7 @@ export enum TokenInstructionTag {
   ThawAccount = 11,
   TransferChecked = 12,
   ApproveChecked = 13,
+  MintToChecked = 14,
   // Add other instructions as needed
 }
 
@@ -83,6 +89,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.ThawAccount]: ThawAccount;
   [TokenInstructionTag.TransferChecked]: TransferChecked;
   [TokenInstructionTag.ApproveChecked]: ApproveChecked;
+  [TokenInstructionTag.MintToChecked]: MintToChecked;
   // Add more as you implement them
 }
 
@@ -112,6 +119,7 @@ const serializeMap: {
   [TokenInstructionTag.ThawAccount]: serializeThawAccount,
   [TokenInstructionTag.TransferChecked]: serializeTransferChecked,
   [TokenInstructionTag.ApproveChecked]: serializeApproveChecked,
+  [TokenInstructionTag.MintToChecked]: serializeMintToChecked,
   // Add more as you implement them
 };
 
@@ -134,6 +142,7 @@ const deserializeMap: {
   [TokenInstructionTag.ThawAccount]: deserializeThawAccount,
   [TokenInstructionTag.TransferChecked]: deserializeTransferChecked,
   [TokenInstructionTag.ApproveChecked]: deserializeApproveChecked,
+  [TokenInstructionTag.MintToChecked]: deserializeMintToChecked,
   // Add more as you implement them
 };
 

@@ -37,6 +37,8 @@ export type { TransferChecked } from './instructions/transfer-checked';
 export { createTransferCheckedInstruction } from './instructions/transfer-checked';
 export type { ApproveChecked } from './instructions/approve-checked';
 export { createApproveCheckedInstruction } from './instructions/approve-checked';
+export type { MintToChecked } from './instructions/mint-to-checked';
+export { createMintToCheckedInstruction } from './instructions/mint-to-checked';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
