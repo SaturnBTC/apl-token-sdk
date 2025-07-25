@@ -25,6 +25,8 @@ export type { SetAuthority, AuthorityType } from './instructions/set-authority';
 export { createSetAuthorityInstruction } from './instructions/set-authority';
 export type { MintTo } from './instructions/mint-to';
 export { createMintToInstruction } from './instructions/mint-to';
+export type { Burn } from './instructions/burn';
+export { createBurnInstruction } from './instructions/burn';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
