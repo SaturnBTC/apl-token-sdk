@@ -4,14 +4,21 @@ import {
   deserializeInitializeMint,
 } from './initialize-mint';
 import { UnknownInstructionTagError } from '../errors/unknown-instruction-tag-error';
+import {
+  deserializeInitializeAccount,
+  InitializeAccount,
+  serializeInitializeAccount,
+} from './initialize-account';
 
 export enum TokenInstructionTag {
   InitializeMint = 0,
+  InitializeAccount = 1,
   // Add other instructions as needed
 }
 
 export interface TokenInstructionValueMap {
   [TokenInstructionTag.InitializeMint]: InitializeMint;
+  [TokenInstructionTag.InitializeAccount]: InitializeAccount;
   // Add more as you implement them
 }
 
@@ -28,6 +35,7 @@ const serializeMap: {
   ) => Uint8Array;
 } = {
   [TokenInstructionTag.InitializeMint]: serializeInitializeMint,
+  [TokenInstructionTag.InitializeAccount]: serializeInitializeAccount,
   // Add more as you implement them
 };
 
@@ -37,12 +45,16 @@ const deserializeMap: {
   ) => TokenInstructionValueMap[K];
 } = {
   [TokenInstructionTag.InitializeMint]: deserializeInitializeMint,
+  [TokenInstructionTag.InitializeAccount]: deserializeInitializeAccount,
   // Add more as you implement them
 };
 
-export const serializeTokenInstruction = (
-  instruction: TokenInstruction,
-): Uint8Array => {
+export const serializeTokenInstruction = <
+  K extends keyof TokenInstructionValueMap,
+>(instruction: {
+  type: K;
+  value: TokenInstructionValueMap[K];
+}): Uint8Array => {
   const serializer = serializeMap[instruction.type];
   if (!serializer) {
     throw new UnknownInstructionTagError(Number(instruction.type));

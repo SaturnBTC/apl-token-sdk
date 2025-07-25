@@ -12,6 +12,7 @@ export type {
 // Individual instruction helpers and types
 export type { InitializeMint } from './instructions/initialize-mint';
 export { createInitializeMintInstruction } from './instructions/initialize-mint';
+export { createInitializeAccountInstruction } from './instructions/initialize-account';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
