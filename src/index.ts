@@ -27,6 +27,8 @@ export type { MintTo } from './instructions/mint-to';
 export { createMintToInstruction } from './instructions/mint-to';
 export type { Burn } from './instructions/burn';
 export { createBurnInstruction } from './instructions/burn';
+export type { CloseAccount } from './instructions/close-account';
+export { createCloseAccountInstruction } from './instructions/close-account';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
