@@ -3,22 +3,29 @@ import {
   serializeInitializeMint,
   deserializeInitializeMint,
 } from './initialize-mint';
-import { UnknownInstructionTagError } from '../errors/unknown-instruction-tag-error';
 import {
-  deserializeInitializeAccount,
   InitializeAccount,
   serializeInitializeAccount,
+  deserializeInitializeAccount,
 } from './initialize-account';
+import {
+  InitializeMultisig,
+  serializeInitializeMultisig,
+  deserializeInitializeMultisig,
+} from './initialize-multisig';
+import { UnknownInstructionTagError } from '../errors/unknown-instruction-tag-error';
 
 export enum TokenInstructionTag {
   InitializeMint = 0,
   InitializeAccount = 1,
+  InitializeMultisig = 2,
   // Add other instructions as needed
 }
 
 export interface TokenInstructionValueMap {
   [TokenInstructionTag.InitializeMint]: InitializeMint;
   [TokenInstructionTag.InitializeAccount]: InitializeAccount;
+  [TokenInstructionTag.InitializeMultisig]: InitializeMultisig;
   // Add more as you implement them
 }
 
@@ -36,6 +43,7 @@ const serializeMap: {
 } = {
   [TokenInstructionTag.InitializeMint]: serializeInitializeMint,
   [TokenInstructionTag.InitializeAccount]: serializeInitializeAccount,
+  [TokenInstructionTag.InitializeMultisig]: serializeInitializeMultisig,
   // Add more as you implement them
 };
 
@@ -46,21 +54,19 @@ const deserializeMap: {
 } = {
   [TokenInstructionTag.InitializeMint]: deserializeInitializeMint,
   [TokenInstructionTag.InitializeAccount]: deserializeInitializeAccount,
+  [TokenInstructionTag.InitializeMultisig]: deserializeInitializeMultisig,
   // Add more as you implement them
 };
 
-export const serializeTokenInstruction = <
+export function serializeTokenInstruction<
   K extends keyof TokenInstructionValueMap,
->(instruction: {
-  type: K;
-  value: TokenInstructionValueMap[K];
-}): Uint8Array => {
+>(instruction: { type: K; value: TokenInstructionValueMap[K] }): Uint8Array {
   const serializer = serializeMap[instruction.type];
   if (!serializer) {
     throw new UnknownInstructionTagError(Number(instruction.type));
   }
   return serializer(instruction.value);
-};
+}
 
 export const deserializeTokenInstruction = (
   buffer: Uint8Array,

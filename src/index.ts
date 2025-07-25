@@ -13,6 +13,8 @@ export type {
 export type { InitializeMint } from './instructions/initialize-mint';
 export { createInitializeMintInstruction } from './instructions/initialize-mint';
 export { createInitializeAccountInstruction } from './instructions/initialize-account';
+export type { InitializeMultisig } from './instructions/initialize-multisig';
+export { createInitializeMultisigInstruction } from './instructions/initialize-multisig';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
