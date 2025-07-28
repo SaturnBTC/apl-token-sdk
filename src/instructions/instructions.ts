@@ -79,6 +79,11 @@ import {
   serializeGetAccountDataSize,
   deserializeGetAccountDataSize,
 } from './get-account-data-size';
+import {
+  InitializeImmutableOwner,
+  serializeInitializeImmutableOwner,
+  deserializeInitializeImmutableOwner,
+} from './initialize-immutable-owner';
 
 export enum TokenInstructionTag {
   InitializeMint = 0,
@@ -101,6 +106,7 @@ export enum TokenInstructionTag {
   InitializeAccount3 = 17,
   InitializeMint2 = 18,
   GetAccountDataSize = 19,
+  InitializeImmutableOwner = 20,
   // Add other instructions as needed
 }
 
@@ -125,6 +131,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.InitializeAccount3]: InitializeAccount3;
   [TokenInstructionTag.InitializeMint2]: InitializeMint2;
   [TokenInstructionTag.GetAccountDataSize]: GetAccountDataSize;
+  [TokenInstructionTag.InitializeImmutableOwner]: InitializeImmutableOwner;
   // Add more as you implement them
 }
 
@@ -160,6 +167,8 @@ const serializeMap: {
   [TokenInstructionTag.InitializeAccount3]: serializeInitializeAccount3,
   [TokenInstructionTag.InitializeMint2]: serializeInitializeMint2,
   [TokenInstructionTag.GetAccountDataSize]: serializeGetAccountDataSize,
+  [TokenInstructionTag.InitializeImmutableOwner]:
+    serializeInitializeImmutableOwner,
   // Add more as you implement them
 };
 
@@ -188,6 +197,8 @@ const deserializeMap: {
   [TokenInstructionTag.InitializeAccount3]: deserializeInitializeAccount3,
   [TokenInstructionTag.InitializeMint2]: deserializeInitializeMint2,
   [TokenInstructionTag.GetAccountDataSize]: deserializeGetAccountDataSize,
+  [TokenInstructionTag.InitializeImmutableOwner]:
+    deserializeInitializeImmutableOwner,
   // Add more as you implement them
 };
 

@@ -49,6 +49,8 @@ export type { InitializeMint2 } from './instructions/initialize-mint2';
 export { createInitializeMint2Instruction } from './instructions/initialize-mint2';
 export type { GetAccountDataSize } from './instructions/get-account-data-size';
 export { createGetAccountDataSizeInstruction } from './instructions/get-account-data-size';
+export type { InitializeImmutableOwner } from './instructions/initialize-immutable-owner';
+export { createInitializeImmutableOwnerInstruction } from './instructions/initialize-immutable-owner';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
