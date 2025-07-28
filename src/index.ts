@@ -51,6 +51,8 @@ export type { GetAccountDataSize } from './instructions/get-account-data-size';
 export { createGetAccountDataSizeInstruction } from './instructions/get-account-data-size';
 export type { InitializeImmutableOwner } from './instructions/initialize-immutable-owner';
 export { createInitializeImmutableOwnerInstruction } from './instructions/initialize-immutable-owner';
+export type { AmountToUiAmount } from './instructions/amount-to-ui-amount';
+export { createAmountToUiAmountInstruction } from './instructions/amount-to-ui-amount';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
