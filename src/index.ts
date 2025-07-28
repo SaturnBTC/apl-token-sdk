@@ -41,6 +41,8 @@ export type { ApproveChecked } from './instructions/approve-checked';
 export { createApproveCheckedInstruction } from './instructions/approve-checked';
 export type { MintToChecked } from './instructions/mint-to-checked';
 export { createMintToCheckedInstruction } from './instructions/mint-to-checked';
+export type { InitializeAccount2 } from './instructions/initialize-account2';
+export { createInitializeAccount2Instruction } from './instructions/initialize-account2';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';

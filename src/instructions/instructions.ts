@@ -59,6 +59,11 @@ import {
   deserializeMintToChecked,
 } from './mint-to-checked';
 import { UnknownInstructionTagError } from '../errors/unknown-instruction-tag-error';
+import {
+  deserializeInitializeAccount2,
+  InitializeAccount2,
+  serializeInitializeAccount2,
+} from './initialize-account2';
 
 export enum TokenInstructionTag {
   InitializeMint = 0,
@@ -77,6 +82,7 @@ export enum TokenInstructionTag {
   ApproveChecked = 13,
   MintToChecked = 14,
   BurnChecked = 15,
+  InitializeAccount2 = 16,
   // Add other instructions as needed
 }
 
@@ -97,6 +103,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.ApproveChecked]: ApproveChecked;
   [TokenInstructionTag.MintToChecked]: MintToChecked;
   [TokenInstructionTag.BurnChecked]: BurnChecked;
+  [TokenInstructionTag.InitializeAccount2]: InitializeAccount2;
   // Add more as you implement them
 }
 
@@ -128,6 +135,7 @@ const serializeMap: {
   [TokenInstructionTag.ApproveChecked]: serializeApproveChecked,
   [TokenInstructionTag.MintToChecked]: serializeMintToChecked,
   [TokenInstructionTag.BurnChecked]: serializeBurnChecked,
+  [TokenInstructionTag.InitializeAccount2]: serializeInitializeAccount2,
   // Add more as you implement them
 };
 
@@ -152,6 +160,7 @@ const deserializeMap: {
   [TokenInstructionTag.ApproveChecked]: deserializeApproveChecked,
   [TokenInstructionTag.MintToChecked]: deserializeMintToChecked,
   [TokenInstructionTag.BurnChecked]: deserializeBurnChecked,
+  [TokenInstructionTag.InitializeAccount2]: deserializeInitializeAccount2,
   // Add more as you implement them
 };
 
