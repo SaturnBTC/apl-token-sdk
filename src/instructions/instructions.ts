@@ -119,7 +119,6 @@ export enum TokenInstructionTag {
   InitializeImmutableOwner = 20,
   AmountToUiAmount = 21,
   UiAmountToAmount = 22,
-  // Add other instructions as needed
 }
 
 export interface TokenInstructionValueMap {
@@ -146,7 +145,6 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.InitializeImmutableOwner]: InitializeImmutableOwner;
   [TokenInstructionTag.AmountToUiAmount]: AmountToUiAmount;
   [TokenInstructionTag.UiAmountToAmount]: UiAmountToAmount;
-  // Add more as you implement them
 }
 
 export type TokenInstruction = {
@@ -156,90 +154,126 @@ export type TokenInstruction = {
   };
 }[keyof TokenInstructionValueMap];
 
-const serializeMap: {
-  [K in keyof TokenInstructionValueMap]: (
-    value: TokenInstructionValueMap[K],
-  ) => Uint8Array;
+const instructionHandlers: {
+  [K in keyof TokenInstructionValueMap]: {
+    serialize: (value: TokenInstructionValueMap[K]) => Uint8Array;
+    deserialize: (buffer: Uint8Array) => TokenInstructionValueMap[K];
+  };
 } = {
-  [TokenInstructionTag.InitializeMint]: serializeInitializeMint,
-  [TokenInstructionTag.InitializeAccount]: serializeInitializeAccount,
-  [TokenInstructionTag.InitializeMultisig]: serializeInitializeMultisig,
-  [TokenInstructionTag.Transfer]: serializeTransfer,
-  [TokenInstructionTag.Approve]: serializeApprove,
-  [TokenInstructionTag.Revoke]: serializeRevoke,
-  [TokenInstructionTag.SetAuthority]: serializeSetAuthority,
-  [TokenInstructionTag.MintTo]: serializeMintTo,
-  [TokenInstructionTag.Burn]: serializeBurn,
-  [TokenInstructionTag.CloseAccount]: serializeCloseAccount,
-  [TokenInstructionTag.FreezeAccount]: serializeFreezeAccount,
-  [TokenInstructionTag.ThawAccount]: serializeThawAccount,
-  [TokenInstructionTag.TransferChecked]: serializeTransferChecked,
-  [TokenInstructionTag.ApproveChecked]: serializeApproveChecked,
-  [TokenInstructionTag.MintToChecked]: serializeMintToChecked,
-  [TokenInstructionTag.BurnChecked]: serializeBurnChecked,
-  [TokenInstructionTag.InitializeAccount2]: serializeInitializeAccount2,
-  [TokenInstructionTag.InitializeAccount3]: serializeInitializeAccount3,
-  [TokenInstructionTag.InitializeMint2]: serializeInitializeMint2,
-  [TokenInstructionTag.GetAccountDataSize]: serializeGetAccountDataSize,
-  [TokenInstructionTag.InitializeImmutableOwner]:
-    serializeInitializeImmutableOwner,
-  [TokenInstructionTag.AmountToUiAmount]: serializeAmountToUiAmount,
-  [TokenInstructionTag.UiAmountToAmount]: serializeUiAmountToAmount,
-  // Add more as you implement them
-};
-
-const deserializeMap: {
-  [K in keyof TokenInstructionValueMap]: (
-    buffer: Uint8Array,
-  ) => TokenInstructionValueMap[K];
-} = {
-  [TokenInstructionTag.InitializeMint]: deserializeInitializeMint,
-  [TokenInstructionTag.InitializeAccount]: deserializeInitializeAccount,
-  [TokenInstructionTag.InitializeMultisig]: deserializeInitializeMultisig,
-  [TokenInstructionTag.Transfer]: deserializeTransfer,
-  [TokenInstructionTag.Approve]: deserializeApprove,
-  [TokenInstructionTag.Revoke]: deserializeRevoke,
-  [TokenInstructionTag.SetAuthority]: deserializeSetAuthority,
-  [TokenInstructionTag.MintTo]: deserializeMintTo,
-  [TokenInstructionTag.Burn]: deserializeBurn,
-  [TokenInstructionTag.CloseAccount]: deserializeCloseAccount,
-  [TokenInstructionTag.FreezeAccount]: deserializeFreezeAccount,
-  [TokenInstructionTag.ThawAccount]: deserializeThawAccount,
-  [TokenInstructionTag.TransferChecked]: deserializeTransferChecked,
-  [TokenInstructionTag.ApproveChecked]: deserializeApproveChecked,
-  [TokenInstructionTag.MintToChecked]: deserializeMintToChecked,
-  [TokenInstructionTag.BurnChecked]: deserializeBurnChecked,
-  [TokenInstructionTag.InitializeAccount2]: deserializeInitializeAccount2,
-  [TokenInstructionTag.InitializeAccount3]: deserializeInitializeAccount3,
-  [TokenInstructionTag.InitializeMint2]: deserializeInitializeMint2,
-  [TokenInstructionTag.GetAccountDataSize]: deserializeGetAccountDataSize,
-  [TokenInstructionTag.InitializeImmutableOwner]:
-    deserializeInitializeImmutableOwner,
-  [TokenInstructionTag.AmountToUiAmount]: deserializeAmountToUiAmount,
-  [TokenInstructionTag.UiAmountToAmount]: deserializeUiAmountToAmount,
-  // Add more as you implement them
+  [TokenInstructionTag.InitializeMint]: {
+    serialize: serializeInitializeMint,
+    deserialize: deserializeInitializeMint,
+  },
+  [TokenInstructionTag.InitializeAccount]: {
+    serialize: serializeInitializeAccount,
+    deserialize: deserializeInitializeAccount,
+  },
+  [TokenInstructionTag.InitializeMultisig]: {
+    serialize: serializeInitializeMultisig,
+    deserialize: deserializeInitializeMultisig,
+  },
+  [TokenInstructionTag.Transfer]: {
+    serialize: serializeTransfer,
+    deserialize: deserializeTransfer,
+  },
+  [TokenInstructionTag.Approve]: {
+    serialize: serializeApprove,
+    deserialize: deserializeApprove,
+  },
+  [TokenInstructionTag.Revoke]: {
+    serialize: serializeRevoke,
+    deserialize: deserializeRevoke,
+  },
+  [TokenInstructionTag.SetAuthority]: {
+    serialize: serializeSetAuthority,
+    deserialize: deserializeSetAuthority,
+  },
+  [TokenInstructionTag.MintTo]: {
+    serialize: serializeMintTo,
+    deserialize: deserializeMintTo,
+  },
+  [TokenInstructionTag.Burn]: {
+    serialize: serializeBurn,
+    deserialize: deserializeBurn,
+  },
+  [TokenInstructionTag.CloseAccount]: {
+    serialize: serializeCloseAccount,
+    deserialize: deserializeCloseAccount,
+  },
+  [TokenInstructionTag.FreezeAccount]: {
+    serialize: serializeFreezeAccount,
+    deserialize: deserializeFreezeAccount,
+  },
+  [TokenInstructionTag.ThawAccount]: {
+    serialize: serializeThawAccount,
+    deserialize: deserializeThawAccount,
+  },
+  [TokenInstructionTag.TransferChecked]: {
+    serialize: serializeTransferChecked,
+    deserialize: deserializeTransferChecked,
+  },
+  [TokenInstructionTag.ApproveChecked]: {
+    serialize: serializeApproveChecked,
+    deserialize: deserializeApproveChecked,
+  },
+  [TokenInstructionTag.MintToChecked]: {
+    serialize: serializeMintToChecked,
+    deserialize: deserializeMintToChecked,
+  },
+  [TokenInstructionTag.BurnChecked]: {
+    serialize: serializeBurnChecked,
+    deserialize: deserializeBurnChecked,
+  },
+  [TokenInstructionTag.InitializeAccount2]: {
+    serialize: serializeInitializeAccount2,
+    deserialize: deserializeInitializeAccount2,
+  },
+  [TokenInstructionTag.InitializeAccount3]: {
+    serialize: serializeInitializeAccount3,
+    deserialize: deserializeInitializeAccount3,
+  },
+  [TokenInstructionTag.InitializeMint2]: {
+    serialize: serializeInitializeMint2,
+    deserialize: deserializeInitializeMint2,
+  },
+  [TokenInstructionTag.GetAccountDataSize]: {
+    serialize: serializeGetAccountDataSize,
+    deserialize: deserializeGetAccountDataSize,
+  },
+  [TokenInstructionTag.InitializeImmutableOwner]: {
+    serialize: serializeInitializeImmutableOwner,
+    deserialize: deserializeInitializeImmutableOwner,
+  },
+  [TokenInstructionTag.AmountToUiAmount]: {
+    serialize: serializeAmountToUiAmount,
+    deserialize: deserializeAmountToUiAmount,
+  },
+  [TokenInstructionTag.UiAmountToAmount]: {
+    serialize: serializeUiAmountToAmount,
+    deserialize: deserializeUiAmountToAmount,
+  },
 };
 
 export function serializeTokenInstruction<
   K extends keyof TokenInstructionValueMap,
 >(instruction: { type: K; value: TokenInstructionValueMap[K] }): Uint8Array {
-  const serializer = serializeMap[instruction.type];
-  if (!serializer) {
+  const handler = instructionHandlers[instruction.type];
+  if (!handler) {
     throw new UnknownInstructionTagError(Number(instruction.type));
   }
-  return serializer(instruction.value);
+  return handler.serialize(instruction.value);
 }
 
 export const deserializeTokenInstruction = (
   buffer: Uint8Array,
 ): TokenInstruction => {
   const tag = buffer[0] as keyof TokenInstructionValueMap;
-  const deserializer = deserializeMap[tag];
-  if (!deserializer) {
+  const handler = instructionHandlers[tag];
+  if (!handler) {
     throw new UnknownInstructionTagError(Number(tag));
   }
   return {
     type: tag,
-    value: deserializer(buffer),
+    value: handler.deserialize(buffer),
   } as TokenInstruction;
 };
