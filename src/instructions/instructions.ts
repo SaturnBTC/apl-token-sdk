@@ -64,6 +64,11 @@ import {
   InitializeAccount2,
   serializeInitializeAccount2,
 } from './initialize-account2';
+import {
+  deserializeInitializeAccount3,
+  InitializeAccount3,
+  serializeInitializeAccount3,
+} from './initialize-account3';
 
 export enum TokenInstructionTag {
   InitializeMint = 0,
@@ -83,6 +88,7 @@ export enum TokenInstructionTag {
   MintToChecked = 14,
   BurnChecked = 15,
   InitializeAccount2 = 16,
+  InitializeAccount3 = 17,
   // Add other instructions as needed
 }
 
@@ -104,6 +110,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.MintToChecked]: MintToChecked;
   [TokenInstructionTag.BurnChecked]: BurnChecked;
   [TokenInstructionTag.InitializeAccount2]: InitializeAccount2;
+  [TokenInstructionTag.InitializeAccount3]: InitializeAccount3;
   // Add more as you implement them
 }
 
@@ -136,6 +143,7 @@ const serializeMap: {
   [TokenInstructionTag.MintToChecked]: serializeMintToChecked,
   [TokenInstructionTag.BurnChecked]: serializeBurnChecked,
   [TokenInstructionTag.InitializeAccount2]: serializeInitializeAccount2,
+  [TokenInstructionTag.InitializeAccount3]: serializeInitializeAccount3,
   // Add more as you implement them
 };
 
@@ -161,6 +169,7 @@ const deserializeMap: {
   [TokenInstructionTag.MintToChecked]: deserializeMintToChecked,
   [TokenInstructionTag.BurnChecked]: deserializeBurnChecked,
   [TokenInstructionTag.InitializeAccount2]: deserializeInitializeAccount2,
+  [TokenInstructionTag.InitializeAccount3]: deserializeInitializeAccount3,
   // Add more as you implement them
 };
 

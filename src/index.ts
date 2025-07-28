@@ -43,6 +43,8 @@ export type { MintToChecked } from './instructions/mint-to-checked';
 export { createMintToCheckedInstruction } from './instructions/mint-to-checked';
 export type { InitializeAccount2 } from './instructions/initialize-account2';
 export { createInitializeAccount2Instruction } from './instructions/initialize-account2';
+export type { InitializeAccount3 } from './instructions/initialize-account3';
+export { createInitializeAccount3Instruction } from './instructions/initialize-account3';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
