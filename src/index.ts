@@ -47,6 +47,8 @@ export type { InitializeAccount3 } from './instructions/initialize-account3';
 export { createInitializeAccount3Instruction } from './instructions/initialize-account3';
 export type { InitializeMint2 } from './instructions/initialize-mint2';
 export { createInitializeMint2Instruction } from './instructions/initialize-mint2';
+export type { GetAccountDataSize } from './instructions/get-account-data-size';
+export { createGetAccountDataSizeInstruction } from './instructions/get-account-data-size';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';

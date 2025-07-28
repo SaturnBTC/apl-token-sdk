@@ -74,6 +74,11 @@ import {
   serializeInitializeMint2,
   deserializeInitializeMint2,
 } from './initialize-mint2';
+import {
+  GetAccountDataSize,
+  serializeGetAccountDataSize,
+  deserializeGetAccountDataSize,
+} from './get-account-data-size';
 
 export enum TokenInstructionTag {
   InitializeMint = 0,
@@ -95,6 +100,7 @@ export enum TokenInstructionTag {
   InitializeAccount2 = 16,
   InitializeAccount3 = 17,
   InitializeMint2 = 18,
+  GetAccountDataSize = 19,
   // Add other instructions as needed
 }
 
@@ -118,6 +124,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.InitializeAccount2]: InitializeAccount2;
   [TokenInstructionTag.InitializeAccount3]: InitializeAccount3;
   [TokenInstructionTag.InitializeMint2]: InitializeMint2;
+  [TokenInstructionTag.GetAccountDataSize]: GetAccountDataSize;
   // Add more as you implement them
 }
 
@@ -152,6 +159,7 @@ const serializeMap: {
   [TokenInstructionTag.InitializeAccount2]: serializeInitializeAccount2,
   [TokenInstructionTag.InitializeAccount3]: serializeInitializeAccount3,
   [TokenInstructionTag.InitializeMint2]: serializeInitializeMint2,
+  [TokenInstructionTag.GetAccountDataSize]: serializeGetAccountDataSize,
   // Add more as you implement them
 };
 
@@ -179,6 +187,7 @@ const deserializeMap: {
   [TokenInstructionTag.InitializeAccount2]: deserializeInitializeAccount2,
   [TokenInstructionTag.InitializeAccount3]: deserializeInitializeAccount3,
   [TokenInstructionTag.InitializeMint2]: deserializeInitializeMint2,
+  [TokenInstructionTag.GetAccountDataSize]: deserializeGetAccountDataSize,
   // Add more as you implement them
 };
 
