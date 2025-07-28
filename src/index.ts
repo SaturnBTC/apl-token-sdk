@@ -45,6 +45,8 @@ export type { InitializeAccount2 } from './instructions/initialize-account2';
 export { createInitializeAccount2Instruction } from './instructions/initialize-account2';
 export type { InitializeAccount3 } from './instructions/initialize-account3';
 export { createInitializeAccount3Instruction } from './instructions/initialize-account3';
+export type { InitializeMint2 } from './instructions/initialize-mint2';
+export { createInitializeMint2Instruction } from './instructions/initialize-mint2';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
