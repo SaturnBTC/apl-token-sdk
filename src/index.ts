@@ -53,6 +53,8 @@ export type { InitializeImmutableOwner } from './instructions/initialize-immutab
 export { createInitializeImmutableOwnerInstruction } from './instructions/initialize-immutable-owner';
 export type { AmountToUiAmount } from './instructions/amount-to-ui-amount';
 export { createAmountToUiAmountInstruction } from './instructions/amount-to-ui-amount';
+export type { UiAmountToAmount } from './instructions/ui-amount-to-amount';
+export { createUiAmountToAmountInstruction } from './instructions/ui-amount-to-amount';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';

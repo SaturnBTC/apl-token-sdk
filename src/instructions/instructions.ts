@@ -89,6 +89,11 @@ import {
   serializeAmountToUiAmount,
   deserializeAmountToUiAmount,
 } from './amount-to-ui-amount';
+import {
+  UiAmountToAmount,
+  serializeUiAmountToAmount,
+  deserializeUiAmountToAmount,
+} from './ui-amount-to-amount';
 
 export enum TokenInstructionTag {
   InitializeMint = 0,
@@ -113,6 +118,7 @@ export enum TokenInstructionTag {
   GetAccountDataSize = 19,
   InitializeImmutableOwner = 20,
   AmountToUiAmount = 21,
+  UiAmountToAmount = 22,
   // Add other instructions as needed
 }
 
@@ -139,6 +145,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.GetAccountDataSize]: GetAccountDataSize;
   [TokenInstructionTag.InitializeImmutableOwner]: InitializeImmutableOwner;
   [TokenInstructionTag.AmountToUiAmount]: AmountToUiAmount;
+  [TokenInstructionTag.UiAmountToAmount]: UiAmountToAmount;
   // Add more as you implement them
 }
 
@@ -177,6 +184,7 @@ const serializeMap: {
   [TokenInstructionTag.InitializeImmutableOwner]:
     serializeInitializeImmutableOwner,
   [TokenInstructionTag.AmountToUiAmount]: serializeAmountToUiAmount,
+  [TokenInstructionTag.UiAmountToAmount]: serializeUiAmountToAmount,
   // Add more as you implement them
 };
 
@@ -208,6 +216,7 @@ const deserializeMap: {
   [TokenInstructionTag.InitializeImmutableOwner]:
     deserializeInitializeImmutableOwner,
   [TokenInstructionTag.AmountToUiAmount]: deserializeAmountToUiAmount,
+  [TokenInstructionTag.UiAmountToAmount]: deserializeUiAmountToAmount,
   // Add more as you implement them
 };
 
