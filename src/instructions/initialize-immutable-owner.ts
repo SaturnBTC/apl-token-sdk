@@ -1,6 +1,4 @@
-import { Pubkey } from '../types/pubkey';
-import { Instruction } from '@saturnbtcio/arch-sdk';
-import { AccountMeta } from '@saturnbtcio/arch-sdk';
+import { Instruction, AccountMeta, Pubkey } from '@saturnbtcio/arch-sdk';
 import { TokenInstructionTag } from './instructions';
 import { InstructionDeserializationError } from '../errors/instruction-deserialization-error';
 

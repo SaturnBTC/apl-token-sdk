@@ -1,5 +1,4 @@
-import { Pubkey } from '../types/pubkey';
-import { Instruction, AccountMeta } from '@saturnbtcio/arch-sdk';
+import { Instruction, AccountMeta, Pubkey } from '@saturnbtcio/arch-sdk';
 import { TokenInstructionTag } from './instructions';
 import { InstructionDeserializationError } from '../errors/instruction-deserialization-error';
 import { COptionPubkey, serializeCOptionPubkey } from '../types/pubkey';

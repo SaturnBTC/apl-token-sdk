@@ -1,4 +1,4 @@
-export type Pubkey = Uint8Array;
+import { Pubkey } from '@saturnbtcio/arch-sdk';
 
 export type COptionPubkey =
   | { option: 0 } // None

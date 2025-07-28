@@ -62,7 +62,8 @@ export { InvalidCOptionError } from './errors/invalid-coption-error';
 export { UnknownInstructionTagError } from './errors/unknown-instruction-tag-error';
 
 // Shared types
-export type { Pubkey, COptionPubkey } from './types/pubkey';
+export type { Pubkey } from '@saturnbtcio/arch-sdk';
+export type { COptionPubkey } from './types/pubkey';
 export {
   serializeCOptionPubkey,
   deserializeCOptionPubkey,
