@@ -75,7 +75,7 @@ export const createSetAuthorityInstruction = (
   authorityType: AuthorityType,
   newAuthority: COptionPubkey,
   programId: Pubkey,
-  signerPubkeys: Pubkey[] = [], // For multisig support
+  signerPubkeys: Pubkey[] = [],
 ): Instruction => {
   const data = serializeSetAuthority({ authorityType, newAuthority });
 

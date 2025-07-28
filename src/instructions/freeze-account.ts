@@ -38,7 +38,7 @@ export const createFreezeAccountInstruction = (
   mintPubkey: Pubkey,
   ownerPubkey: Pubkey,
   programId: Pubkey,
-  signerPubkeys: Pubkey[] = [], // For multisig support
+  signerPubkeys: Pubkey[] = [],
 ): Instruction => {
   const data = serializeFreezeAccount({});
 

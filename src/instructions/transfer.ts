@@ -12,7 +12,6 @@ export const serializeTransfer = (instruction: Transfer): Uint8Array => {
   const buffer = new Uint8Array(1 + 8); // tag + amount (u64)
   buffer[0] = TokenInstructionTag.Transfer;
 
-  // Convert bigint to 8 bytes (little-endian)
   const amountBytes = new Uint8Array(8);
   const view = new DataView(amountBytes.buffer);
   view.setBigUint64(0, instruction.amount, true);
@@ -34,7 +33,6 @@ export const deserializeTransfer = (buffer: Uint8Array): Transfer => {
     throw new InstructionDeserializationError('Invalid tag for Transfer', tag);
   }
 
-  // Read u64 amount (8 bytes, little-endian)
   const amountBytes = buffer.slice(1, 9);
   const view = new DataView(
     amountBytes.buffer,
@@ -52,7 +50,7 @@ export const createTransferInstruction = (
   ownerPubkey: Pubkey,
   amount: bigint,
   programId: Pubkey,
-  signerPubkeys: Pubkey[] = [], // For multisig support
+  signerPubkeys: Pubkey[] = [],
 ): Instruction => {
   const data = serializeTransfer({ amount });
 

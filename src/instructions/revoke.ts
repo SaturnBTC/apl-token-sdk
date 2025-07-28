@@ -23,7 +23,7 @@ export const createRevokeInstruction = (
   sourcePubkey: Pubkey,
   ownerPubkey: Pubkey,
   programId: Pubkey,
-  signerPubkeys: Pubkey[] = [], // For multisig support
+  signerPubkeys: Pubkey[] = [],
 ): Instruction => {
   const data = serializeRevoke({});
 

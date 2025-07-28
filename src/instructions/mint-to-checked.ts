@@ -63,7 +63,7 @@ export const createMintToCheckedInstruction = (
   amount: bigint,
   decimals: number,
   programId: Pubkey,
-  signerPubkeys: Pubkey[] = [], // For multisig support
+  signerPubkeys: Pubkey[] = [],
 ): Instruction => {
   const data = serializeMintToChecked({ amount, decimals });
 

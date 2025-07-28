@@ -66,7 +66,7 @@ export const createTransferCheckedInstruction = (
   amount: bigint,
   decimals: number,
   programId: Pubkey,
-  signerPubkeys: Pubkey[] = [], // For multisig support
+  signerPubkeys: Pubkey[] = [],
 ): Instruction => {
   const data = serializeTransferChecked({ amount, decimals });
 

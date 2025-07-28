@@ -36,7 +36,7 @@ export const createThawAccountInstruction = (
   mintPubkey: Pubkey,
   ownerPubkey: Pubkey,
   programId: Pubkey,
-  signerPubkeys: Pubkey[] = [], // For multisig support
+  signerPubkeys: Pubkey[] = [],
 ): Instruction => {
   const data = serializeThawAccount({});
 

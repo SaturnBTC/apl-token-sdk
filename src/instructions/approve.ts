@@ -50,7 +50,7 @@ export const createApproveInstruction = (
   ownerPubkey: Pubkey,
   amount: bigint,
   programId: Pubkey,
-  signerPubkeys: Pubkey[] = [], // For multisig support
+  signerPubkeys: Pubkey[] = [],
 ): Instruction => {
   const data = serializeApprove({ amount });
 
