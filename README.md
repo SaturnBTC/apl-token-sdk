@@ -1,4 +1,4 @@
-# token-serde-sdk
+# apl-token-sdk
 
 A TypeScript SDK for constructing and serializing token program instructions, compatible with the Rust implementation.
 
