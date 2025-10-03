@@ -1,0 +1,25 @@
+{
+  "name": "@saturnbtcio/apl-token-metadata",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "deploy": "npm run build && npm publish",
+    "lint": "tsc"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@saturnbtcio/arch-sdk": "0.0.20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  }
+}
+

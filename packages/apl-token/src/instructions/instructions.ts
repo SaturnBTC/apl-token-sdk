@@ -94,6 +94,7 @@ import {
   serializeUiAmountToAmount,
   deserializeUiAmountToAmount,
 } from './ui-amount-to-amount';
+import { Anchor, serializeAnchor, deserializeAnchor } from './anchor';
 
 export enum TokenInstructionTag {
   InitializeMint = 0,
@@ -119,6 +120,7 @@ export enum TokenInstructionTag {
   InitializeImmutableOwner = 20,
   AmountToUiAmount = 21,
   UiAmountToAmount = 22,
+  Anchor = 23,
 }
 
 export interface TokenInstructionValueMap {
@@ -145,6 +147,7 @@ export interface TokenInstructionValueMap {
   [TokenInstructionTag.InitializeImmutableOwner]: InitializeImmutableOwner;
   [TokenInstructionTag.AmountToUiAmount]: AmountToUiAmount;
   [TokenInstructionTag.UiAmountToAmount]: UiAmountToAmount;
+  [TokenInstructionTag.Anchor]: Anchor;
 }
 
 export type TokenInstruction = {
@@ -251,6 +254,10 @@ const instructionHandlers: {
   [TokenInstructionTag.UiAmountToAmount]: {
     serialize: serializeUiAmountToAmount,
     deserialize: deserializeUiAmountToAmount,
+  },
+  [TokenInstructionTag.Anchor]: {
+    serialize: serializeAnchor,
+    deserialize: deserializeAnchor,
   },
 };
 

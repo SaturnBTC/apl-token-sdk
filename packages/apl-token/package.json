@@ -1,6 +1,6 @@
 {
-  "name": "apl-token-sdk",
-  "version": "0.0.1",
+  "name": "@saturnbtcio/apl-token",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "publishConfig": {
@@ -36,6 +36,13 @@
     "endOfLine": "lf"
   },
   "dependencies": {
-    "@saturnbtcio/arch-sdk": "0.0.11"
-  }
+    "@saturnbtcio/arch-sdk": "0.0.20"
+  },
+  "pnpm": {
+    "patchedDependencies": {}
+  },
+  "private": false,
+  "workspaces": [
+    "packages/*"
+  ]
 }

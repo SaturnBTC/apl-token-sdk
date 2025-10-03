@@ -4,27 +4,58 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  '@saturnbtcio/arch-sdk':
-    specifier: 0.0.11
-    version: 0.0.11
+importers:
 
-devDependencies:
-  '@types/node':
-    specifier: ^22.1.0
-    version: 22.16.5
-  prettier:
-    specifier: ^3.3.3
-    version: 3.6.2
-  tsup:
-    specifier: ^8.2.4
-    version: 8.5.0(typescript@5.8.3)
-  typescript:
-    specifier: ^5.5.4
-    version: 5.8.3
-  vitest:
-    specifier: ^2.0.5
-    version: 2.1.9(@types/node@22.16.5)
+  packages/apl-token:
+    dependencies:
+      '@saturnbtcio/arch-sdk':
+        specifier: 0.0.20
+        version: 0.0.20
+    devDependencies:
+      '@types/node':
+        specifier: ^22.1.0
+        version: 22.16.5
+      prettier:
+        specifier: ^3.3.3
+        version: 3.6.2
+      tsup:
+        specifier: ^8.2.4
+        version: 8.5.0(typescript@5.8.3)
+      typescript:
+        specifier: ^5.5.4
+        version: 5.8.3
+      vitest:
+        specifier: ^2.0.5
+        version: 2.1.9(@types/node@22.16.5)
+
+  packages/apl-token-metadata-sdk:
+    dependencies:
+      '@saturnbtcio/arch-sdk':
+        specifier: 0.0.20
+        version: 0.0.20
+    devDependencies:
+      '@types/node':
+        specifier: ^22.1.0
+        version: 22.16.5
+      tsup:
+        specifier: ^8.2.4
+        version: 8.5.0(typescript@5.8.3)
+      typescript:
+        specifier: ^5.5.4
+        version: 5.8.3
+
+  packages/ata-instructions:
+    dependencies:
+      '@saturnbtcio/arch-sdk':
+        specifier: 0.0.20
+        version: 0.0.20
+    devDependencies:
+      tsup:
+        specifier: ^8.2.4
+        version: 8.5.0(typescript@5.8.3)
+      typescript:
+        specifier: ^5.5.4
+        version: 5.8.3
 
 packages:
 
@@ -683,8 +714,8 @@ packages:
     dev: true
     optional: true
 
-  /@saturnbtcio/arch-sdk@0.0.11:
-    resolution: {integrity: sha512-ibvr9OpMVLGaME46hrJSJvOK8j/AJy+TyjLrwNrQu7cqWYxn3V9zny7yNcQU65EsbcAL/yZKiTimiPjUq3L6qQ==}
+  /@saturnbtcio/arch-sdk@0.0.20:
+    resolution: {integrity: sha512-7fb5HJgyWJVZD6nsO0lum3NNm/kzTPsJPq1VNxe1cqlVJ16hjVVur4SL7XlR0DF1Ge+7s+Q03Rc+7q6vqBqKqA==}
     dependencies:
       '@noble/curves': 1.9.4
       '@noble/hashes': 1.8.0
@@ -1306,6 +1337,7 @@ packages:
   /source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
     dependencies:
       whatwg-url: 7.1.0
     dev: true

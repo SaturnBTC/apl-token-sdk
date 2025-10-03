@@ -55,6 +55,8 @@ export type { AmountToUiAmount } from './instructions/amount-to-ui-amount';
 export { createAmountToUiAmountInstruction } from './instructions/amount-to-ui-amount';
 export type { UiAmountToAmount } from './instructions/ui-amount-to-amount';
 export { createUiAmountToAmountInstruction } from './instructions/ui-amount-to-amount';
+export type { Anchor, InputToSign } from './instructions/anchor';
+export { createAnchorInstruction } from './instructions/anchor';
 
 // Error types
 export { InstructionDeserializationError } from './errors/instruction-deserialization-error';
@@ -68,3 +70,5 @@ export {
   serializeCOptionPubkey,
   deserializeCOptionPubkey,
 } from './types/pubkey';
+
+export { APL_TOKEN_PROGRAM_ID } from './program';

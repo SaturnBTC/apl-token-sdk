@@ -42,7 +42,6 @@ export const createInitializeAccount2Instruction = (
   accountPubkey: Pubkey,
   mintPubkey: Pubkey,
   owner: Pubkey,
-  rentSysvarPubkey: Pubkey,
   programId: Pubkey,
 ): Instruction => {
   const data = serializeInitializeAccount2({ owner });
@@ -55,11 +54,6 @@ export const createInitializeAccount2Instruction = (
     },
     {
       pubkey: mintPubkey,
-      is_signer: false,
-      is_writable: false,
-    },
-    {
-      pubkey: rentSysvarPubkey,
       is_signer: false,
       is_writable: false,
     },
